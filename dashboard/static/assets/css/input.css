@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer components {
+	.label_padrao {
+		@apply text-base font-semibold text-gray-800;
+	}
+
+	.input_padrao {
+		@apply form-input
+		 mt-0
+		 block
+		 w-full
+		 border-0 border-b-2 border-gray-200
+		 focus:ring-0 focus:border-green-900
+		 max-w-md h-11
+		 transition
+		 ease-out
+		 px-2
+		 text-gray-800
+		 pl-8
+		 text-base;
+	}
+
+	.alert-warning {
+		@apply text-yellow-700 bg-yellow-100 px-3 py-2 rounded max-w-md my-2 font-medium;
+	}
+	.alert-danger {
+		@apply text-red-500 bg-red-50 px-3 py-2 rounded max-w-md my-2 font-medium;
+	}
+	.alert-info {
+		@apply text-blue-700 bg-blue-50 px-3 py-2 rounded max-w-md my-2 font-medium;
+	}
+	.alert-success {
+		@apply text-green-800 bg-green-100 px-3 py-2 rounded max-w-md my-2 font-medium;
+	}
+	.alert-primary {
+		@apply text-gray-800 bg-gray-100 px-3 py-2 rounded max-w-md my-2 font-medium;
+	}
+}
+
+html {
+	--font-base: 100%;
+	--menu-size: 0;
+	font-size: var(--font-base);
+	scroll-behavior: smooth;
+}
+
+@media (max-width: 1446px) {
+	html {
+		font-size: calc(var(--font-base) - 12.25%);
+	}
+}
+
+@media (max-width: 980px) {
+	html {
+		font-size: calc(var(--font-base) - 14.5%);
+	}
+}
+
+@media (max-width: 340px) {
+	html {
+		font-size: calc(var(--font-base) - 30%);
+	}
+}
+.mozila .backdrop-blur-md {
+	background: rgba(28, 28, 28, 0.882) !important;
+}

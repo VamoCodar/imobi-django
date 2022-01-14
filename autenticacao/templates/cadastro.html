@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+{% endblock %}
+
+{% block 'titulo' %}Cadastre-se{% endblock %}
+
+{% block 'body' %}
+<main class="cadastro h-screen">
+	<div class="grid-cols-12 grid h-full items-center">
+		<div class="col-span-5 sidebar   h-full relative flex flex-col ">
+			<img class="object-cover absolute w-full h-full top-0 left-0 z-10  "
+				src="{% static 'assets/img/bg-login.png' %}" alt="">
+
+			<div
+				class="backdrop-blur-md w-max h-max z-20 rounded-lg px-20 py-8 relative mx-auto mt-8 overflow-hidden shadow ">
+				<div class="flex items-center gap-5">
+					<img class="h-20" src="{% static 'assets/img/logo.png' %}" alt="logo">
+					<h2 class=" text-white  text-8xl text-center font-logo">
+						IMOBI
+					</h2>
+''
+				</div>
+			</div>
+
+
+			<div
+				class="w-full backdrop-blur-md  h-auto z-20 rounded-lg px-20 pt-12 pb-5 relative mx-auto mt-auto overflow-hidden shadow ">
+
+
+				<p class="mb-5 text-gray-200">Se já tem cadastro, Faça o login:</p>
+				<a class="transition btn_cadastrar px-12 py-2 bg-green-600 w-max rounded cursor-pointer text-white font-semibold  hover:border-green-800 border  border-transparent"
+					href="{% url 'logar' %}">LOGAR</a>
+				<div>
+					<p class="text-gray-200 font-thin text-base italic block mt-5 text-right">As melhores casas, Nos
+						melhores preços.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-span-7 p-10">
+			<div class="area_cadastrar">
+
+				<form action="{% url 'cadastro' %}" method="POST" autocomplete="off">
+					{% csrf_token %}
+					<h2 class=" text-4xl mb-8 font-semibold text-gray-800 ">Cadastre-se</h2>
+					{% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {{message.tags}}">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                    {% endif %}
+					<div class="grid gap-3">
+						<label>
+							<p class="label_padrao">Usuario</p>
+							<div class="relative">
+								<ion-icon class="absolute top-0 bottom-0 my-auto left-2  text-gray-700" name="person">
+								</ion-icon>
+								<input autocomplete="off" name="username" class="input_padrao pl-8" type="text"
+									placeholder="Usuario...">
+							</div>
+						</label>
+
+						<label>
+							<p class="label_padrao">Email</p>
+							<div class="relative">
+								<ion-icon class="absolute top-0 bottom-0 my-auto left-2  text-gray-700" name="mail">
+								</ion-icon>
+								<input autocomplete="off" name="email" class="input_padrao pl-8" type="text"
+									placeholder="Email...">
+							</div>
+						</label>
+						<label>
+							<p class="label_padrao">Senha</p>
+							<div class="relative">
+								<ion-icon class="absolute top-0 bottom-0 my-auto left-2  text-gray-700"
+									name="lock-closed">
+								</ion-icon>
+								<input autocomplete="off" name="senha" class="input_padrao pl-8" type="password"
+									placeholder="Senha...">
+							</div>
+						</label>
+						<button
+							class="transition btn_cadastrar px-12 py-2 bg-green-600 w-max rounded cursor-pointer text-white font-semibold  hover:border-green-800  border-2 border-transparent transform active:translate-y-1"
+							type="submit"> Cadastrar</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+
+
+</main>
+
+
+
+
+{% endblock %}
